@@ -1,12 +1,18 @@
-import Title from './Components/Title'
+import Calculator from './Components/Calculator';
+import Title from './Components/Title';
+
 import './App.css'
 
 function App() {
 
   return (
     
-    <Title name="Calculator9000"/>
+    <>
+    <Title/>
 
+    <Calculator/>
+    </>
+    
   )
 }
 

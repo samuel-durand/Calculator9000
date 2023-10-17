@@ -1,6 +1,8 @@
 function Title(props)  {
+
+    const tile ="Calculator9000"
     return (
-        <h1>{props.name}</h1>
+        <h1>{tile}</h1>
 
     )
 }
