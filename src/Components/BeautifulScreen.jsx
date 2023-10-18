@@ -1,6 +1,6 @@
 function BeautifulScreen(props)  {
     return (
-        <h1>{props.name}</h1>
+        <h1 className="beautiful">{props.name}</h1>
 
     )
 }

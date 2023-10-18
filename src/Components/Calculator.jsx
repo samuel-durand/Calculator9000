@@ -1,9 +1,10 @@
+// Calculator.js
 import React, { useState } from 'react';
 import NumberButton from './NumberButton';
 import OperatorButton from './OperatorButton';
 import EqualButton from './EqualButton';
-
-
+import ItSOverNineThousand from './ItSOverNineThousand ';
+import Title from './Title'
 function Calculator() {
   const [displayValue, setDisplayValue] = useState('0');
   const [calculation, setCalculation] = useState('');
@@ -25,6 +26,12 @@ function Calculator() {
       const result = eval(calculation);
       setDisplayValue(calculation + ' = ' + result.toString());
       setCalculation('');
+
+      if (result > 9000) {
+        setItSOverNineThousandVisible(true);
+      } else {
+        setItSOverNineThousandVisible(false);
+      }
     } catch (error) {
       setDisplayValue('Error');
       setCalculation('Error');
@@ -36,23 +43,20 @@ function Calculator() {
     setCalculation('');
   };
 
+  const [itSOverNineThousandVisible, setItSOverNineThousandVisible] = useState(false);
+
   return (
-<div className="calculator">
+    <div className="calculator">
+          <Title/>
 
-    <input type="text" className="calc-numbers" value={displayValue} readOnly />
-
+      <input type="text" className="calc-numbers" value={displayValue} readOnly />
       <NumberButton onClick={handleNumberClick} className="number-button" />
-
-        <OperatorButton onClick={handleOperatorClick} className="operator-button" />
-
-        <EqualButton onClick={handleEqualClick} className="equal-button" />
-
-        <button onClick={handleClearClick} className="clear-button">C</button>
-
-</div>
-
-
-    
+      <OperatorButton onClick={handleOperatorClick} className="operator-button" />
+      <EqualButton onClick={handleEqualClick} className="equal-button" />
+      <button onClick={handleClearClick} className="clear-button">C</button>
+      {/* Affichez le composant ItSOverNineThousand */}
+      <ItSOverNineThousand visible={itSOverNineThousandVisible} />
+    </div>
   );
 }
 
