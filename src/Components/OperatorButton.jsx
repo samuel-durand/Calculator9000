@@ -1,20 +1,17 @@
+
 function OperatorButton(props) {
-    const operatorButtons = ["+", "-", "*", "/"];
-  
-    const handleClick = (operator) => {
-      console.log("Operator clicked: " + operator);
-    };
-  
-    return (
-      <div>
-        {operatorButtons.map((operator, index) => (
-          <h2 key={index} onClick={() => handleClick(operator)}>
-            {operator}
-          </h2>
-        ))}
-      </div>
-    );
-  }
-  
-  export default OperatorButton;
-  
+  const { onClick } = props;
+  const operatorButtons = ["+", "-", "*", "/"];
+
+  return (
+    <div>
+      {operatorButtons.map((operator, index) => (
+        <button className="operator" key={index} onClick={() => onClick(operator)}>
+          {operator}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+export default OperatorButton;

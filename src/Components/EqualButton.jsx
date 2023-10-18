@@ -1,14 +1,18 @@
-function EqualButton(props) {
-    const equal = "=";
-  
-    const handleClick = () => {
+import React from 'react';
 
-    };
-  
-    return (
-      <h2 onClick={handleClick}>{equal}</h2>
-    );
-  }
-  
-  export default EqualButton;
-  
+function EqualButton(props) {
+  const handleEqualClick = () => {
+    if (props.onClick) {
+      props.onClick();
+    }
+    console.log('Bouton Equal cliqué');
+  };
+
+  return (
+    <button onClick={handleEqualClick}>
+      =
+    </button>
+  );
+}
+
+export default EqualButton;
